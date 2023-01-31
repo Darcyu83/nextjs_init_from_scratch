@@ -1,4 +1,9 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next"
+import styled from "styled-components"
+
+const Container = styled.div`
+  background: red;
+`
 
 interface IProps {
   nodeEnv: string
@@ -7,25 +12,25 @@ interface IProps {
 }
 
 function About(props: IProps) {
-  const data = {
-    nodeEnv: process.env.NODE_ENV,
-    myEnv: process.env.MY_ENV ? "값있음" : "값없음",
-    nextPublic: process.env.NEXT_PUBLIC_MY_ENV_NV,
-  }
+  // const data = {
+  //   nodeEnv: process.env.NODE_ENV,
+  //   myEnv: process.env.MY_ENV ? "값있음" : "값없음",
+  //   nextPublic: process.env.NEXT_PUBLIC_MY_ENV_NV,
+  // }
   return (
-    <div style={{}}>
+    <Container>
       <h1>About == </h1>
-      <h4>props from back myEnv == {props.myEnv}</h4>
+      {/* <h4>props from back myEnv == {props.myEnv}</h4>
       <h4>props from back nextPublic == {props.nextPublic}</h4>
-      <h4>props from back nodeEnv == {props.nodeEnv}</h4>
+      <h4>props from back nodeEnv == {props.nodeEnv}</h4> */}
 
       <br />
 
       <br />
-      <h4>data from front myEnv == {data.myEnv}</h4>
+      {/* <h4>data from front myEnv == {data.myEnv}</h4>
       <h4>data from front nextPublic == {data.nextPublic}</h4>
-      <h4>data from front nodeEnv == {data.nodeEnv}</h4>
-    </div>
+      <h4>data from front nodeEnv == {data.nodeEnv}</h4> */}
+    </Container>
   )
 }
 
@@ -35,9 +40,9 @@ export const getServerSideProps: GetServerSideProps = async (
   _ctx: GetServerSidePropsContext,
 ) => {
   const data = {
-    nodeEnv: process.env.NODE_ENV,
-    myEnv: process.env.MY_ENV,
-    nextPublic: process.env.NEXT_PUBLIC_MY_ENV_NV,
+    // nodeEnv: process.env.NODE_ENV,
+    // myEnv: process.env.MY_ENV,
+    // nextPublic: process.env.NEXT_PUBLIC_MY_ENV_NV,
   }
   console.log("getServerSideProps === ", data)
 
